@@ -1,5 +1,5 @@
 # Importando o framework Flask
-from flask import Flask, render_template, request # type: ignore
+from flask import Flask, render_template, request, redirect # type: ignore
 # Importar classe jogo
 from modelos.jogo import Jogo
 
@@ -26,7 +26,7 @@ def criar():
     console = request.form['console']
     jogo = Jogo(nome, categoria, console)
     lista.append(jogo)
-    return render_template('lista.html', titulo='Jogos', jogos=lista)
+    return redirect('/')
     
 # Rodar a aplicação
 app.run(debug=True)
